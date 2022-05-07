@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">EFCO</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_profile">Profile</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="photo">Photo</string>
+    <string name="registration">Registration</string>
+    <string name="full_name_label">Full Name</string>
+    <string name="enter_your_name">Enter Your name</string>
+    <string name="email">Email</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="Phone_no">Phone Number</string>
+    <string name="address">Address</string>
+    <string name="enter_your_address">Enter Your Address</string>
+    <string name="password">Password</string>
+    <string name="enter_your_password">Enter Your Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="enter_your_password1">Enter your password again</string>
+</resources>

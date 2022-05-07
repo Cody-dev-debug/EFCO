@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "177434298391",
+    "project_id": "ef-co-8b4af",
+    "storage_bucket": "ef-co-8b4af.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:177434298391:android:38cc8f9c0ef53cafb4b452",
+        "android_client_info": {
+          "package_name": "com.example.efco"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "177434298391-ejbbd51a4p5cjd4a5rb022gar7qncb02.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYNEpnLvM_2l1mMCzgfSbjf5iJT9aevro"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "177434298391-ejbbd51a4p5cjd4a5rb022gar7qncb02.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:177434298391:android:9e2f8caadbe51498b4b452",
+        "android_client_info": {
+          "package_name": "com.example.fucku"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "177434298391-ejbbd51a4p5cjd4a5rb022gar7qncb02.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYNEpnLvM_2l1mMCzgfSbjf5iJT9aevro"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "177434298391-ejbbd51a4p5cjd4a5rb022gar7qncb02.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
