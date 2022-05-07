@@ -15,11 +15,20 @@ import android.widget.Toast;
 
 import com.example.efco.ui.AppActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -87,7 +96,7 @@ public class RegisterActivity extends AppCompatActivity {
                 {
                     Toast.makeText(RegisterActivity.this,"Please enter same password",Toast.LENGTH_LONG).show();
                     editTextcfmpassword.setError("Password Confirmation is required");
-                    editTextphone.requestFocus();
+                    editTextpassword.requestFocus();
                     editTextpassword.clearComposingText();
                     editTextcfmpassword.clearComposingText();
                 }
@@ -108,12 +117,58 @@ public class RegisterActivity extends AppCompatActivity {
                 if(task.isSuccessful()){
                     Toast.makeText(RegisterActivity.this,"User Registration Successfully",Toast.LENGTH_LONG).show();
                     FirebaseUser firebaseUser= mAuth.getCurrentUser();
-                    assert firebaseUser != null;
-                    firebaseUser.sendEmailVerification();
-                    Intent intent=new Intent(RegisterActivity.this, AppActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP |Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intent);
-                    finish();
+                    ReadWriteUserDetails writeUserDetails=new ReadWriteUserDetails(textFullName,textPhone,textAddress);
+                    FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+                    // Create a new user with a first and last name
+                    Map<String, Object> user = new HashMap<>();
+                    user.put("Full Name", writeUserDetails.fullname);
+                    user.put("Phone Number", writeUserDetails.phone);
+                    user.put("Address", writeUserDetails.address);
+
+// Add a new document with a generated ID
+                    db.collection("Users")
+                            .add(user)
+                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                @Override
+                                public void onSuccess(DocumentReference documentReference) {
+                                    assert firebaseUser != null;
+                                    firebaseUser.sendEmailVerification();
+                                    Toast.makeText(RegisterActivity.this, "User Successfully Registered. \nPlease verify your email", Toast.LENGTH_SHORT).show();
+                                    Intent intent=new Intent(RegisterActivity.this, AppActivity.class);
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP |Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                    startActivity(intent);
+                                    finish();
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(RegisterActivity.this, "User Registration Failed.", Toast.LENGTH_SHORT).show();
+                                    progressBar.setVisibility(View.GONE);
+                                }
+                            });
+                }
+                else
+                {
+                    try {
+                        throw task.getException();
+                    } catch (FirebaseAuthWeakPasswordException e) {
+                        editTextpassword.setError("Your Password is too weak.Kindly use another");
+                        editTextpassword.requestFocus();
+                    }
+                    catch (FirebaseAuthInvalidCredentialsException e){
+                        editTextpassword.setError("Your email is invalid or already in use.Kindly re-enter");
+                        editTextpassword.requestFocus();
+                    }
+                    catch (FirebaseAuthUserCollisionException e){
+                        editTextemail.setError("A user is already registered with this email. Use another email");
+                        editTextemail.requestFocus();
+                    }
+                    catch (Exception e){
+                        Toast.makeText(RegisterActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                    progressBar.setVisibility(View.GONE);
                 }
             }
         });

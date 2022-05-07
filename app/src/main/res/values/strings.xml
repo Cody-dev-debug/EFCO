@@ -9,14 +9,15 @@
     <string name="photo">Photo</string>
     <string name="registration">Registration</string>
     <string name="full_name_label">Full Name</string>
-    <string name="enter_your_name">Enter Your name</string>
+    <string name="enter_your_name">Enter your name</string>
     <string name="email">Email</string>
     <string name="enter_your_email">Enter your email</string>
     <string name="Phone_no">Phone Number</string>
     <string name="address">Address</string>
-    <string name="enter_your_address">Enter Your Address</string>
+    <string name="enter_your_address">Enter your address</string>
     <string name="password">Password</string>
-    <string name="enter_your_password">Enter Your Password</string>
+    <string name="enter_your_password">Enter your password</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="enter_your_password1">Enter your password again</string>
+    <string name="enter_your_phone">Enter your phone number</string>
 </resources>

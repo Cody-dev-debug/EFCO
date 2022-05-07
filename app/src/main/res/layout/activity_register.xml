@@ -112,11 +112,11 @@
             android:layout_alignParentEnd="true"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="21dp"
-            android:hint="@string/enter_your_email"
-            android:inputType="phone"
-            android:padding="6dp"
             android:autofillHints="Email"
-            android:background="@drawable/edit_box"/>
+            android:background="@drawable/edit_box"
+            android:hint="@string/enter_your_phone"
+            android:inputType="phone"
+            android:padding="6dp" />
 
         <TextView
             android:id="@+id/address_label"
