@@ -10,13 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EFCO">
         <activity
-            android:name="com.example.efco.RegisterActivity"
+            android:name=".LoginActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.efco.ui.AppActivity"
+            android:name=".ui.LoginActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.efco.MainActivity"
+            android:name=".RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.AppActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name">
             <intent-filter>
