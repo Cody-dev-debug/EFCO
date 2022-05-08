@@ -22,11 +22,11 @@ public class AppActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityAppBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setIcon(R.drawable.left_nav);
-        getSupportActionBar().setTitle("");
-        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
+//        getSupportActionBar().setIcon(R.drawable.left_nav);
+//        getSupportActionBar().setTitle("");
+//        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.

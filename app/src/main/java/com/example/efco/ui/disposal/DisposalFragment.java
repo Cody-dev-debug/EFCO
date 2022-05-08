@@ -4,26 +4,21 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.efco.R;
 import com.example.efco.databinding.FragmentDisposalBinding;
-import com.example.efco.ui.store.ItemAdapter;
-import com.example.efco.ui.store.ItemData;
-import com.example.efco.ui.store.StoreFragment;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class DisposalFragment extends Fragment {
 
     private DisposalViewModel disposalViewModel;
     private FragmentDisposalBinding binding;
+    private FirebaseAuth mAuth;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -33,7 +28,16 @@ public class DisposalFragment extends Fragment {
         binding = FragmentDisposalBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-
+//        mAuth = FirebaseAuth.getInstance();
+//        FirebaseUser firebaseUser=mAuth.getCurrentUser();
+//        if(firebaseUser==null)
+//        {
+//            Toast.makeText(getActivity(),"Something went wrong",Toast.LENGTH_LONG).show();
+//        }
+//        else
+//        {
+//            showUserProfile(firebaseUser);
+//        }
         RecyclerView recyclerView = binding.recyclerView1;
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
