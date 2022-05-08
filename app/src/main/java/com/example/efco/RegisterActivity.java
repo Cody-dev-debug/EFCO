@@ -125,6 +125,7 @@ public class RegisterActivity extends AppCompatActivity {
                     user.put("Full Name", writeUserDetails.fullname);
                     user.put("Phone Number", writeUserDetails.phone);
                     user.put("Address", writeUserDetails.address);
+                    user.put("Points","0");
                     assert firebaseUser != null;
                     String userId=firebaseUser.getUid();
 // Add a new document with a generated ID
