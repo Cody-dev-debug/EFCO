@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">EFCO</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_disposal">Disposal</string>
+    <string name="title_store">E-Store</string>
     <string name="title_profile">Profile</string>
     <string name="login">Login</string>
     <string name="register">Register</string>
@@ -20,4 +20,5 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="enter_your_password1">Enter your password again</string>
     <string name="enter_your_phone">Enter your phone number</string>
+    <string name="loading">Loading...</string>
 </resources>

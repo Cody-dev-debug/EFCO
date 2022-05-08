@@ -12,16 +12,16 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.efco.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_disposal"
+        android:name="com.example.efco.ui.disposal.DisposalFragment"
+        android:label="@string/title_disposal"
+        tools:layout="@layout/fragment_disposal" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.efco.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_store"
+        android:name="com.example.efco.ui.store.StoreFragment"
+        android:label="@string/title_store"
+        tools:layout="@layout/fragment_store" />
 
     <fragment
         android:id="@+id/navigation_profile"

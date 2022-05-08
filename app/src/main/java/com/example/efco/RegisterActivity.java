@@ -125,17 +125,16 @@ public class RegisterActivity extends AppCompatActivity {
                     user.put("Full Name", writeUserDetails.fullname);
                     user.put("Phone Number", writeUserDetails.phone);
                     user.put("Address", writeUserDetails.address);
-
+                    assert firebaseUser != null;
+                    String userId=firebaseUser.getUid();
 // Add a new document with a generated ID
-                    db.collection("Users")
-                            .add(user)
-                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    db.collection("Users").document(userId).set(user)
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
-                                public void onSuccess(DocumentReference documentReference) {
-                                    assert firebaseUser != null;
+                                public void onSuccess(Void unused) {
                                     firebaseUser.sendEmailVerification();
                                     Toast.makeText(RegisterActivity.this, "User Successfully Registered. \nPlease verify your email", Toast.LENGTH_SHORT).show();
-                                    Intent intent=new Intent(RegisterActivity.this, AppActivity.class);
+                                    Intent intent=new Intent(RegisterActivity.this, LoginActivity.class);
                                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP |Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                     startActivity(intent);
                                     finish();
